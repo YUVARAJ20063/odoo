@@ -45,7 +45,7 @@ export const Employees = () => {
   const fetchEmployees = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/employees', {
+      const response = await fetch('https://heavy-cars-bake.loca.lt/api/employees', {
         headers: { 'Authorization': `Bearer ${user.token}` }
       });
       const data = await response.json();
@@ -61,7 +61,7 @@ export const Employees = () => {
 
   const fetchDepts = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/departments', {
+      const response = await fetch('https://heavy-cars-bake.loca.lt/api/departments', {
         headers: { 'Authorization': `Bearer ${user.token}` }
       });
       const data = await response.json();
@@ -106,7 +106,7 @@ export const Employees = () => {
     setSelectedEmployeeDetail(emp);
     setDetailLoading(true);
     try {
-      const response = await fetch(`http://localhost:5000/api/employees/${emp._id}`, {
+      const response = await fetch(`https://heavy-cars-bake.loca.lt/api/employees/${emp._id}`, {
         headers: { 'Authorization': `Bearer ${user.token}` }
       });
       const data = await response.json();
@@ -143,8 +143,8 @@ export const Employees = () => {
 
     try {
       const url = editingEmployee 
-        ? `http://localhost:5000/api/employees/${editingEmployee._id}`
-        : 'http://localhost:5000/api/employees';
+        ? `https://heavy-cars-bake.loca.lt/api/employees/${editingEmployee._id}`
+        : 'https://heavy-cars-bake.loca.lt/api/employees';
 
       const method = editingEmployee ? 'PUT' : 'POST';
 
@@ -198,7 +198,7 @@ export const Employees = () => {
     if (!window.confirm(`Are you sure you want to delete the profile of ${emp.name}?`)) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/employees/${emp._id}`, {
+      const response = await fetch(`https://heavy-cars-bake.loca.lt/api/employees/${emp._id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${user.token}` }
       });

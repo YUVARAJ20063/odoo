@@ -12,7 +12,7 @@ export const NotificationProvider = ({ children }) => {
   const fetchNotifications = useCallback(async () => {
     if (!user) return;
     try {
-      const response = await fetch('http://localhost:5000/api/system/notifications', {
+      const response = await fetch('https://heavy-cars-bake.loca.lt/api/system/notifications', {
         headers: { 'Authorization': `Bearer ${user.token}` }
       });
       const data = await response.json();
@@ -28,7 +28,7 @@ export const NotificationProvider = ({ children }) => {
   const markAsRead = async (id) => {
     if (!user) return;
     try {
-      const response = await fetch(`http://localhost:5000/api/system/notifications/${id}/read`, {
+      const response = await fetch(`https://heavy-cars-bake.loca.lt/api/system/notifications/${id}/read`, {
         method: 'PUT',
         headers: { 'Authorization': `Bearer ${user.token}` }
       });

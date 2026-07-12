@@ -28,7 +28,7 @@ export const Dashboard = () => {
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/reports/dashboard', {
+        const response = await fetch('https://heavy-cars-bake.loca.lt/api/reports/dashboard', {
           headers: { 'Authorization': `Bearer ${user.token}` }
         });
         const result = await response.json();

@@ -55,12 +55,12 @@ export const Navbar = () => {
         const headers = { 'Authorization': `Bearer ${user.token}` };
         
         // Query Assets
-        const assetRes = await fetch(`http://localhost:5000/api/assets?search=${searchQuery}&limit=5`, { headers });
+        const assetRes = await fetch(`https://heavy-cars-bake.loca.lt/api/assets?search=${searchQuery}&limit=5`, { headers });
         const assetData = await assetRes.json();
         setSearchAssets(assetData.assets || []);
 
         // Query Employees
-        const empRes = await fetch('http://localhost:5000/api/employees', { headers });
+        const empRes = await fetch('https://heavy-cars-bake.loca.lt/api/employees', { headers });
         const empData = await empRes.json();
         const filteredEmps = (empData || []).filter(e => 
           e.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -69,7 +69,7 @@ export const Navbar = () => {
         setSearchEmployees(filteredEmps);
 
         // Query Bookings
-        const bookRes = await fetch('http://localhost:5000/api/bookings', { headers });
+        const bookRes = await fetch('https://heavy-cars-bake.loca.lt/api/bookings', { headers });
         const bookData = await bookRes.json();
         const filteredBooks = (bookData || []).filter(b => 
           b.purpose.toLowerCase().includes(searchQuery.toLowerCase()) ||

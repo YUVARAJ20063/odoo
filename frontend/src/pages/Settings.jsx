@@ -61,7 +61,7 @@ export const Settings = () => {
   const fetchSystemUsers = async () => {
     if (user?.role !== 'Admin') return;
     try {
-      const response = await fetch('http://localhost:5000/api/auth/users', {
+      const response = await fetch('https://heavy-cars-bake.loca.lt/api/auth/users', {
         headers: { 'Authorization': `Bearer ${user.token}` }
       });
       const data = await response.json();
@@ -76,7 +76,7 @@ export const Settings = () => {
   // Fetch Enterprise settings
   const fetchEnterpriseSettings = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/system/settings', {
+      const response = await fetch('https://heavy-cars-bake.loca.lt/api/system/settings', {
         headers: { 'Authorization': `Bearer ${user.token}` }
       });
       const data = await response.json();
@@ -95,7 +95,7 @@ export const Settings = () => {
   const fetchDepartments = async () => {
     if (user?.role !== 'Admin') return;
     try {
-      const response = await fetch('http://localhost:5000/api/departments', {
+      const response = await fetch('https://heavy-cars-bake.loca.lt/api/departments', {
         headers: { 'Authorization': `Bearer ${user.token}` }
       });
       const data = await response.json();
@@ -111,7 +111,7 @@ export const Settings = () => {
   const fetchCategories = async () => {
     if (user?.role !== 'Admin') return;
     try {
-      const response = await fetch('http://localhost:5000/api/categories', {
+      const response = await fetch('https://heavy-cars-bake.loca.lt/api/categories', {
         headers: { 'Authorization': `Bearer ${user.token}` }
       });
       const data = await response.json();
@@ -166,7 +166,7 @@ export const Settings = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/system/settings', {
+      const response = await fetch('https://heavy-cars-bake.loca.lt/api/system/settings', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -205,7 +205,7 @@ export const Settings = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/register', {
+      const response = await fetch('https://heavy-cars-bake.loca.lt/api/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -262,8 +262,8 @@ export const Settings = () => {
 
     try {
       const url = editingDept
-        ? `http://localhost:5000/api/departments/${editingDept._id}`
-        : 'http://localhost:5000/api/departments';
+        ? `https://heavy-cars-bake.loca.lt/api/departments/${editingDept._id}`
+        : 'https://heavy-cars-bake.loca.lt/api/departments';
       const method = editingDept ? 'PUT' : 'POST';
 
       const response = await fetch(url, {
@@ -314,8 +314,8 @@ export const Settings = () => {
 
     try {
       const url = editingCat
-        ? `http://localhost:5000/api/categories/${editingCat._id}`
-        : 'http://localhost:5000/api/categories';
+        ? `https://heavy-cars-bake.loca.lt/api/categories/${editingCat._id}`
+        : 'https://heavy-cars-bake.loca.lt/api/categories';
       const method = editingCat ? 'PUT' : 'POST';
 
       const response = await fetch(url, {
@@ -411,7 +411,7 @@ export const Settings = () => {
   const deleteDepartment = async (id) => {
     if (!window.confirm('Are you sure you want to delete this department?')) return;
     try {
-      const response = await fetch(`http://localhost:5000/api/departments/${id}`, {
+      const response = await fetch(`https://heavy-cars-bake.loca.lt/api/departments/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${user.token}` }
       });
@@ -430,7 +430,7 @@ export const Settings = () => {
   const deleteCategory = async (id) => {
     if (!window.confirm('Are you sure you want to delete this category?')) return;
     try {
-      const response = await fetch(`http://localhost:5000/api/categories/${id}`, {
+      const response = await fetch(`https://heavy-cars-bake.loca.lt/api/categories/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${user.token}` }
       });

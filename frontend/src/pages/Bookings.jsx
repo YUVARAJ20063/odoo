@@ -52,8 +52,8 @@ export const Bookings = () => {
     try {
       const headers = { 'Authorization': `Bearer ${user.token}` };
       const [bookRes, resRes] = await Promise.all([
-        fetch('http://localhost:5000/api/bookings', { headers }),
-        fetch('http://localhost:5000/api/bookings/resources', { headers })
+        fetch('https://heavy-cars-bake.loca.lt/api/bookings', { headers }),
+        fetch('https://heavy-cars-bake.loca.lt/api/bookings/resources', { headers })
       ]);
       
       const bookData = await bookRes.json();
@@ -113,7 +113,7 @@ export const Bookings = () => {
     setErrorMsg('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/bookings', {
+      const response = await fetch('https://heavy-cars-bake.loca.lt/api/bookings', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -151,7 +151,7 @@ export const Bookings = () => {
     if (!window.confirm('Are you sure you want to cancel and delete this resource booking?')) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/bookings/${id}`, {
+      const response = await fetch(`https://heavy-cars-bake.loca.lt/api/bookings/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${user.token}` }
       });

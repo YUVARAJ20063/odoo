@@ -29,7 +29,7 @@ export const Login = () => {
   useEffect(() => {
     const fetchDeptsForSignup = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/departments/public');
+        const res = await fetch('https://heavy-cars-bake.loca.lt/api/departments/public');
         if (res.ok) {
           const data = await res.json();
           setDepartments(data || []);
@@ -97,7 +97,7 @@ export const Login = () => {
     
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:5000/api/auth/reset-password', {
+      const res = await fetch('https://heavy-cars-bake.loca.lt/api/auth/reset-password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: resetEmail })

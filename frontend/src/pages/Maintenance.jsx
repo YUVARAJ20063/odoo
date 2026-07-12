@@ -52,9 +52,9 @@ export const Maintenance = () => {
     try {
       const headers = { 'Authorization': `Bearer ${user.token}` };
       const [reqRes, astRes] = await Promise.all([
-        fetch('http://localhost:5000/api/maintenance', { headers }),
+        fetch('https://heavy-cars-bake.loca.lt/api/maintenance', { headers }),
         // Load assets to pick from
-        fetch('http://localhost:5000/api/assets?limit=100', { headers })
+        fetch('https://heavy-cars-bake.loca.lt/api/assets?limit=100', { headers })
       ]);
 
       const reqData = await reqRes.json();
@@ -86,7 +86,7 @@ export const Maintenance = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/maintenance', {
+      const response = await fetch('https://heavy-cars-bake.loca.lt/api/maintenance', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -116,7 +116,7 @@ export const Maintenance = () => {
   const handleApproveSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:5000/api/maintenance/${actionRequest._id}/approve`, {
+      const response = await fetch(`https://heavy-cars-bake.loca.lt/api/maintenance/${actionRequest._id}/approve`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -138,7 +138,7 @@ export const Maintenance = () => {
   const handleAssignSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:5000/api/maintenance/${actionRequest._id}/assign`, {
+      const response = await fetch(`https://heavy-cars-bake.loca.lt/api/maintenance/${actionRequest._id}/assign`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -160,7 +160,7 @@ export const Maintenance = () => {
   const handleResolveSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:5000/api/maintenance/${actionRequest._id}/resolve`, {
+      const response = await fetch(`https://heavy-cars-bake.loca.lt/api/maintenance/${actionRequest._id}/resolve`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -190,7 +190,7 @@ export const Maintenance = () => {
   const handleCancelRequest = async (req) => {
     if (!window.confirm('Cancel this maintenance request?')) return;
     try {
-      const response = await fetch(`http://localhost:5000/api/maintenance/${req._id}/cancel`, {
+      const response = await fetch(`https://heavy-cars-bake.loca.lt/api/maintenance/${req._id}/cancel`, {
         method: 'PUT',
         headers: { 'Authorization': `Bearer ${user.token}` }
       });

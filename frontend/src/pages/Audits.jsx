@@ -35,7 +35,7 @@ export const Audits = () => {
   const fetchAudits = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/audits', {
+      const response = await fetch('https://heavy-cars-bake.loca.lt/api/audits', {
         headers: { 'Authorization': `Bearer ${user.token}` }
       });
       const data = await response.json();
@@ -51,10 +51,10 @@ export const Audits = () => {
 
   const fetchDeptsAndUsers = async () => {
     try {
-      const deptRes = await fetch('http://localhost:5000/api/departments', {
+      const deptRes = await fetch('https://heavy-cars-bake.loca.lt/api/departments', {
         headers: { 'Authorization': `Bearer ${user.token}` }
       });
-      const userRes = await fetch('http://localhost:5000/api/auth/users', {
+      const userRes = await fetch('https://heavy-cars-bake.loca.lt/api/auth/users', {
         headers: { 'Authorization': `Bearer ${user.token}` }
       });
       if (deptRes.ok) setDepartments(await deptRes.json());
@@ -74,7 +74,7 @@ export const Audits = () => {
   const viewAuditDetails = async (id) => {
     setDetailLoading(true);
     try {
-      const response = await fetch(`http://localhost:5000/api/audits/${id}`, {
+      const response = await fetch(`https://heavy-cars-bake.loca.lt/api/audits/${id}`, {
         headers: { 'Authorization': `Bearer ${user.token}` }
       });
       const data = await response.json();
@@ -109,7 +109,7 @@ export const Audits = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/api/audits', {
+      const response = await fetch('https://heavy-cars-bake.loca.lt/api/audits', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -143,7 +143,7 @@ export const Audits = () => {
 
   const startAudit = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/audits/${id}/start`, {
+      const response = await fetch(`https://heavy-cars-bake.loca.lt/api/audits/${id}/start`, {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${user.token}` }
       });
@@ -165,7 +165,7 @@ export const Audits = () => {
   const closeAudit = async (id) => {
     if (!window.confirm('Are you sure you want to close this audit cycle? This will lock evaluations and auto-update asset statuses (e.g. Missing to "Lost").')) return;
     try {
-      const response = await fetch(`http://localhost:5000/api/audits/${id}/close`, {
+      const response = await fetch(`https://heavy-cars-bake.loca.lt/api/audits/${id}/close`, {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${user.token}` }
       });
@@ -186,7 +186,7 @@ export const Audits = () => {
 
   const submitAssetEvaluation = async (assetId, status, notes) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/audits/${selectedAudit._id}/submit`, {
+      const response = await fetch(`https://heavy-cars-bake.loca.lt/api/audits/${selectedAudit._id}/submit`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

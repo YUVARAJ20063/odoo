@@ -25,9 +25,9 @@ export const Reports = () => {
       const headers = { 'Authorization': `Bearer ${user.token}` };
       
       const [deptRes, maintRes, utilRes] = await Promise.all([
-        fetch('http://localhost:5000/api/reports/departments', { headers }),
-        fetch('http://localhost:5000/api/reports/maintenance', { headers }),
-        fetch('http://localhost:5000/api/reports/utilization', { headers })
+        fetch('https://heavy-cars-bake.loca.lt/api/reports/departments', { headers }),
+        fetch('https://heavy-cars-bake.loca.lt/api/reports/maintenance', { headers }),
+        fetch('https://heavy-cars-bake.loca.lt/api/reports/utilization', { headers })
       ]);
 
       const deptVal = await deptRes.json();

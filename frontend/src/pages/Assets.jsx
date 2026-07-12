@@ -81,7 +81,7 @@ export const Assets = () => {
     setLoading(true);
     try {
       const q = `?search=${search}&category=${category}&status=${status}&condition=${condition}&sortBy=${sortBy}&order=${order}&page=${page}&limit=10`;
-      const response = await fetch(`http://localhost:5000/api/assets${q}`, {
+      const response = await fetch(`https://heavy-cars-bake.loca.lt/api/assets${q}`, {
         headers: { 'Authorization': `Bearer ${user.token}` }
       });
       const data = await response.json();
@@ -101,8 +101,8 @@ export const Assets = () => {
     try {
       const headers = { 'Authorization': `Bearer ${user.token}` };
       const [empRes, deptRes] = await Promise.all([
-        fetch('http://localhost:5000/api/employees', { headers }),
-        fetch('http://localhost:5000/api/departments', { headers })
+        fetch('https://heavy-cars-bake.loca.lt/api/employees', { headers }),
+        fetch('https://heavy-cars-bake.loca.lt/api/departments', { headers })
       ]);
       const empData = await empRes.json();
       const deptData = await deptRes.json();
@@ -147,7 +147,7 @@ export const Assets = () => {
     formData.append('file', file);
 
     try {
-      const response = await fetch('http://localhost:5000/api/assets/upload', {
+      const response = await fetch('https://heavy-cars-bake.loca.lt/api/assets/upload', {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${user.token}` },
         body: formData
@@ -205,8 +205,8 @@ export const Assets = () => {
 
     try {
       const url = editingAsset 
-        ? `http://localhost:5000/api/assets/${editingAsset._id}`
-        : 'http://localhost:5000/api/assets';
+        ? `https://heavy-cars-bake.loca.lt/api/assets/${editingAsset._id}`
+        : 'https://heavy-cars-bake.loca.lt/api/assets';
       
       const method = editingAsset ? 'PUT' : 'POST';
 
@@ -267,7 +267,7 @@ export const Assets = () => {
     if (!window.confirm(`Are you absolutely sure you want to delete ${asset.name} and clear all histories?`)) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/assets/${asset._id}`, {
+      const response = await fetch(`https://heavy-cars-bake.loca.lt/api/assets/${asset._id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${user.token}` }
       });
@@ -301,7 +301,7 @@ export const Assets = () => {
     const endpoint = allocationType === 'allocate' ? 'allocate' : 'transfer';
 
     try {
-      const response = await fetch(`http://localhost:5000/api/assets/${allocationAsset._id}/${endpoint}`, {
+      const response = await fetch(`https://heavy-cars-bake.loca.lt/api/assets/${allocationAsset._id}/${endpoint}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -332,7 +332,7 @@ export const Assets = () => {
     if (!window.confirm(`Confirm return of ${asset.name} back to available inventory?`)) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/assets/${asset._id}/return`, {
+      const response = await fetch(`https://heavy-cars-bake.loca.lt/api/assets/${asset._id}/return`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -357,7 +357,7 @@ export const Assets = () => {
     setSelectedAssetDetail(asset);
     setDrawerLoading(true);
     try {
-      const response = await fetch(`http://localhost:5000/api/assets/${asset.assetId}`, {
+      const response = await fetch(`https://heavy-cars-bake.loca.lt/api/assets/${asset.assetId}`, {
         headers: { 'Authorization': `Bearer ${user.token}` }
       });
       const data = await response.json();

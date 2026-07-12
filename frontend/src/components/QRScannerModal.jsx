@@ -16,7 +16,7 @@ export const QRScannerModal = ({ isOpen, onClose }) => {
         try {
           const storedUser = localStorage.getItem('assetflow_user');
           const token = storedUser ? JSON.parse(storedUser).token : '';
-          const response = await fetch('http://localhost:5000/api/assets?limit=100', {
+          const response = await fetch('https://heavy-cars-bake.loca.lt/api/assets?limit=100', {
             headers: { 'Authorization': `Bearer ${token}` }
           });
           const data = await response.json();
